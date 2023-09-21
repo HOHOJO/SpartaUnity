@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c5c2b70f4b17d43af5a2585e76ab90, type: 3}
   m_Name: Armor
   m_EditorClassIdentifier: 
-  displayName: 
-  description: 
+  displayName: "\uAC11\uC637"
+  description: "\uAC11\uC637\uC778\uB4EF"
   type: 1
   icon: {fileID: 21300000, guid: 5105fe1d825990746b9a92407ea447ca, type: 3}
   dropPrefab: {fileID: 0}

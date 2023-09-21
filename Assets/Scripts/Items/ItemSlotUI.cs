@@ -10,8 +10,10 @@ public class ItemSlotUI : MonoBehaviour
     public Button button;
     public Image icon;
     public TextMeshProUGUI quatityText;
+    public TextMeshProUGUI Name;
     private ItemSlot curSlot;
     private Outline outline;
+    public ItemData itemData;
 
     public int index;
     public bool equipped;
@@ -28,6 +30,7 @@ public class ItemSlotUI : MonoBehaviour
 
     public void OnButtonClick()
     {
-        
+        Name.text = itemData.displayName;
+        quatityText.text = itemData.description;
     }
 }

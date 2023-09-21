@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c5c2b70f4b17d43af5a2585e76ab90, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
-  displayName: 
-  description: 
+  displayName: "\uAC80"
+  description: "\uAC80\uC778\uB4EF"
   type: 1
   icon: {fileID: 21300000, guid: 789e518168d493d4396ec984b1b5bcb3, type: 3}
   dropPrefab: {fileID: 0}
