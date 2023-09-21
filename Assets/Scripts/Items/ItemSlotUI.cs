@@ -11,6 +11,9 @@ public class ItemSlotUI : MonoBehaviour
     public Image icon;
     public TextMeshProUGUI quatityText;
     public TextMeshProUGUI Name;
+    public TextMeshProUGUI quatityText2;
+    public TextMeshProUGUI Name2;
+    public SpriteRenderer image;
     private ItemSlot curSlot;
     private Outline outline;
     public ItemData itemData;
@@ -46,6 +49,9 @@ public class ItemSlotUI : MonoBehaviour
     {
         Name.text = itemData.displayName;
         quatityText.text = itemData.description;
+        Name2.text = itemData.displayName;
+        quatityText2.text = itemData.description;
+        image.sprite = itemData.icon;
         Inventory.instance.SelectItem(index);
     }
 }

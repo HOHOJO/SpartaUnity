@@ -24,8 +24,11 @@ public class Inventory : MonoBehaviour
     [Header("Selected Item")]
     private ItemSlot selectedItem;
     private int selectedItemIndex;
+    public GameObject infoPop;
     public GameObject unEquipButton;
     public GameObject equipButton;
+    public GameObject unEquipButton2;
+    public GameObject equipButton2;
     private int curEquipIndex;
     private int selectIndex;
 
@@ -47,16 +50,7 @@ public class Inventory : MonoBehaviour
 
     private void Update()
     {
-        if (uiSlots[selectIndex].equipped)
-        {
-            unEquipButton.SetActive(true);
-            equipButton.SetActive(false);
-        }
-        else
-        {
-            unEquipButton.SetActive(false);
-            equipButton.SetActive(true);
-        }
+
     }
 
 
@@ -83,6 +77,21 @@ public class Inventory : MonoBehaviour
     internal void SelectItem(int index)
     {
         selectIndex = index;
+        if (uiSlots[selectIndex].equipped)
+        {
+            //unEquipButton.SetActive(true);
+            //equipButton.SetActive(false);
+            unEquipButton2.SetActive(true);
+            equipButton2.SetActive(false);
+        }
+        else
+        {
+            //unEquipButton.SetActive(false);
+            //equipButton.SetActive(true);
+            unEquipButton2.SetActive(false);
+            equipButton2.SetActive(true);
+        }
+
     }
 
     public void Equip()
@@ -93,11 +102,16 @@ public class Inventory : MonoBehaviour
         }
         curEquipIndex = selectIndex;
         uiSlots[curEquipIndex].equipped = true;
-
+        //infoPop.SetActive(false);
+        equipButton2.SetActive(false);
+        unEquipButton2.SetActive(false);
     }
 
     public void UnEquip()
     {
-        uiSlots[curEquipIndex].equipped=false;
+        uiSlots[curEquipIndex].equipped = false;
+        //infoPop.SetActive(false);
+        equipButton2.SetActive(false);
+        unEquipButton2.SetActive(false);
     }
 }
