@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 using static UnityEditor.Progress;
 
 public class ItemSlot
@@ -22,11 +24,10 @@ public class Inventory : MonoBehaviour
     [Header("Selected Item")]
     private ItemSlot selectedItem;
     private int selectedItemIndex;
-    public TextMeshProUGUI selectedItemName;
-    public TextMeshProUGUI selectedItemDescription;
-    public TextMeshProUGUI selectedItemStatNames;
-    public TextMeshProUGUI selectedItemStatValues;
+    public GameObject unEquipButton;
+    public GameObject equipButton;
     private int curEquipIndex;
+    private int selectIndex;
 
     public static Inventory instance;
     void Awake()
@@ -42,6 +43,20 @@ public class Inventory : MonoBehaviour
     public bool IsOpen()
     {
         return true;
+    }
+
+    private void Update()
+    {
+        if (uiSlots[selectIndex].equipped)
+        {
+            unEquipButton.SetActive(true);
+            equipButton.SetActive(false);
+        }
+        else
+        {
+            unEquipButton.SetActive(false);
+            equipButton.SetActive(true);
+        }
     }
 
 
@@ -63,5 +78,26 @@ public class Inventory : MonoBehaviour
     public void OnUnEquipButton()
     {
 
+    }
+
+    internal void SelectItem(int index)
+    {
+        selectIndex = index;
+    }
+
+    public void Equip()
+    {
+        if (uiSlots[curEquipIndex].equipped)
+        {
+            UnEquip();
+        }
+        curEquipIndex = selectIndex;
+        uiSlots[curEquipIndex].equipped = true;
+
+    }
+
+    public void UnEquip()
+    {
+        uiSlots[curEquipIndex].equipped=false;
     }
 }

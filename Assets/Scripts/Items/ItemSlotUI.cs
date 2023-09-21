@@ -14,6 +14,7 @@ public class ItemSlotUI : MonoBehaviour
     private ItemSlot curSlot;
     private Outline outline;
     public ItemData itemData;
+    public GameObject equip;
 
     public int index;
     public bool equipped;
@@ -21,6 +22,19 @@ public class ItemSlotUI : MonoBehaviour
     private void Awake()
     {
         outline = GetComponent<Outline>();
+        equipped = false;
+    }
+
+    private void Update()
+    {
+        if(equipped)
+        {
+            equip.SetActive(true);
+        }
+        else
+        {
+            equip.SetActive(false);
+        }    
     }
 
     private void OnEnable()
@@ -32,5 +46,6 @@ public class ItemSlotUI : MonoBehaviour
     {
         Name.text = itemData.displayName;
         quatityText.text = itemData.description;
+        Inventory.instance.SelectItem(index);
     }
 }
