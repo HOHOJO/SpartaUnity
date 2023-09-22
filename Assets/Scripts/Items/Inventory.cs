@@ -37,6 +37,7 @@ public class Inventory : MonoBehaviour
     {
         instance = this;
     }
+
     private void Start()
     {
 

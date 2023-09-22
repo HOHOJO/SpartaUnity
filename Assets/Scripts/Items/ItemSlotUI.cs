@@ -54,4 +54,14 @@ public class ItemSlotUI : MonoBehaviour
         image.sprite = itemData.icon;
         Inventory.instance.SelectItem(index);
     }
+
+    public void OnButtonClick2()
+    {
+        Name.text = itemData.displayName;
+        quatityText.text = itemData.description;
+        Name2.text = itemData.displayName;
+        quatityText2.text = itemData.description;
+        image.sprite = itemData.icon;
+        Shop.instance.SelectItem(index);
+    }
 }
